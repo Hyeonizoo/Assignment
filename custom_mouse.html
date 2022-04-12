@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+
+    <script>
+        // 로드 이벤트: 모든 태그, 이미지 등이 로드되면 실행 (로드이벤트는 최근 한 개만 적용)
+        window.onload = function () {
+            // console.log("load");
+
+            var mouseCursor = document.querySelector(".cursor");
+            var navLinks = document.querySelectorAll(".gnbMenu li");
+            var aLinks = document.querySelectorAll(".myLink");
+            const follower = document.querySelector(".cursor_follower");
+            console.log(navLinks);
+
+            // 각각의 li (반복문 느낌)
+            navLinks.forEach(function(menu){
+                console.log(menu);
+                menu.addEventListener("mouseover", function(){ // 메뉴에 마우스 오버하면 함수 실행
+                    console.log("over");
+                    mouseCursor.classList.add("link_hover"); // mouseCursor의 classList 중에서 link_hover을 추가해라
+                });
+
+                menu.addEventListener("mouseleave", function(){ // 메뉴에 마우스가 떠나면 함수 실행
+                    console.log("over");
+                    mouseCursor.classList.remove("link_hover"); // mouseCursor의 classList 중에서 link_hover을 지워라
+                });
+            })
+
+            aLinks.forEach(function(a){
+                console.log(a);
+                a.addEventListener("mouseover", function(){ // 메뉴에 마우스 오버하면 함수 실행
+                    console.log("over");
+                    mouseCursor.classList.add("link_hover"); // mouseCursor의 classList 중에서 link_hover을 추가해라
+                });
+
+                a.addEventListener("mouseleave", function(){ // 메뉴에 마우스가 떠나면 함수 실행
+                    console.log("over");
+                    mouseCursor.classList.remove("link_hover"); // mouseCursor의 classList 중에서 link_hover을 지워라
+                });
+            })
+
+            // 함수 선언
+            function myCursor(e){
+                // console.log("myCursor 함수");
+                // console.log(e); // 매개인자 e(다른 알파벳도 상관은 없음) 마우스 움직일 때 마다 좌표 찍힘
+                // console.log(e.pageX); // e가 받아오는 mousemove 속성 중에서도 pageX를 받아옴
+                // console.log(e.pageY);
+
+                // console.log(document.getElementsByClassName("cursor")); // 클래스명 접근
+                // console.log(document.getElementsByClassName("cursor")[0]); // 클래스가 여러 개일 때 []안에 숫자
+                // console.log(document.getElementById("my_cursor")); // 아이디명 접근
+        
+                // console.log(document.querySelector(".cursor")); // 클래스명 접근
+                // console.log(document.querySelector("#my_cursor")); // 아이디명 접근
+
+                // $(".cursor"); 제이쿼리 표현법(자바스크립트에선 사용 불가)
+                // $("#my_cursor");
+
+
+                gsap.to(mouseCursor, { duration: 0.3, left: e.pageX - 5, top: e.pageY - 5 });
+                gsap.to(follower, { duration: 0.8, left: e.pageX - 15, top: e.pageY - 15 });
+
+                // top은 위에서 내려오는 값이니까 e.pageY, top 값은 단위가 필요하니까 +"px"
+                mouseCursor.style.top = e.pageY + "px"; 
+                mouseCursor.style.left = e.pageX + "px";
+            }
+
+            // 함수 호출
+            // myCursor(); // 이렇게 사용하면 한 번만 호출되고 끝남
+
+            // 함수 호출해서 사용하는 방법
+            window.addEventListener("mousemove", myCursor); // 윈도우야 마우스를 움직일때마다 myCursor함수를 호출해줘
+
+            // 함수 직접 사용하는 방법
+            // window.addEventListener("mousemove", function(){
+            //     console.log("마우스 움직임");
+            // });
+
+            /* script가 위에 있어서 읽을 수 없으므로 로드이벤트 사용(또는 스크립트를 body에 작성) */
+            // console.log(document.getElementById("logo"));
+            // console.log(document.getELementsByTagName("h1")); // TgaName 사용시 오류
+
+            // document.getElementById("logo").onclick = function () {
+            //     console.log("hi")
+            // }
+        }
+    </script>
+
+    <style>
+        /* 초기화 코드. 전체선택자는 용량차지를 많이해서 필요한 애들만 주는 게 좋음 */
+        h1, h2, h3, h4, h5, h6, p, ul, li, ol{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url("source/background4.jpg");
+            background-size: cover; /* 노트북 사이즈가 다 다르기 때문에 높은 해상도 사진 쓰고 cover 적용 */
+            cursor: none;
+            overflow: hidden; /* 화면 모서리에 갔을 때 스크롤바 안생기게 하기 위해: 화면을 벗어나면 가려라 */
+            font-family: "상상토끼 꽃길";
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        nav{
+            /* border: 3px solid red; */
+            display: flex; /* float 효과 */
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 100px;
+            font-size: 20px;
+        }
+        .gnbMenu{
+            display: flex;
+        }
+        .gnbMenu li{
+            margin: 0 40px;
+            list-style: none;
+            padding: 0 20px;
+        }
+        .cursor{
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgb(0, 81, 255);
+            border-radius: 50%;
+            position: absolute; /* 위치값을 가지기 위해 */ 
+            z-index: -1; /* 마우스오버 이벤트를 사용하기 위해 menu보다 뒤로 보냄 */
+            top: 0;
+            right: 0;
+            transform: translate(-50%, -50%); /* 커서 중심 맞추기 위해 왼쪽으로 50%, 위쪽으로 50% 이동 */
+            transform-origin: 100% 100%; /* 스케일을 키웠을 때 중심이 달라지는 것을 막기 위해서 */
+            transition: all 0.3s ease; /* all로 주면 마우스 따라오는 속도도 느려지니까 transform만 딜레이줘도 됨 */
+            transition-property: background, transform; /* 아니면 all 부분에 내가 포함시키고 싶은 걸 지정해줘도 됨 */
+            /* backdrop-filter: grayscale(); */
+            /* backdrop-filter: blur(3px); */
+            /* backdrop-filter: invert(70%); */
+            backdrop-filter: hue-rotate(120deg); /* 색조 조절 */
+        }
+        .cursor_follower{
+            position: relative;
+            width: 10px;
+            height: 10px;
+            background: white;
+            /* border-radius: 50%; */
+            user-select: none;
+            pointer-events: none;
+            transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
+            transform: rotate(45deg);
+        }
+        .cursor_follower::before{
+            content: "";
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: -50%;
+            border-radius: 50%;
+            background: white;
+        }
+        .cursor_follower::after{
+            content: "";
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: -50%;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .link_hover{
+            transform: scale(1.7); /* 크기 ()배 키우기 */
+            background-color: rgba(111, 0, 255, 0.5);
+        }
+        #profileSection img{
+            z-index: -3; /* 포지션 값이 있어야 사용 가능 */
+            position: relative; /* 포지션만 쓰고 싶으면 relative 사용하면 됨 */
+            border-radius: 50%;
+            width: 300px;
+        }
+        #profileSection{
+            position: absolute;
+            top: 20%;
+            left: 40%;
+            margin: auto;
+            text-align: center;
+        }
+        h1{
+            color:rgb(32, 0, 107);
+        }
+        h2{
+            color: rgb(32, 0, 107);
+            margin: 5px 0px 20px 0;
+        }
+        p{
+            margin: 15px 0 8px 0;
+        }
+        p a{
+            color:rgb(222, 198, 250);
+        }
+        article{
+            color: rgb(222, 198, 250);
+            font-size: 12px;
+        }
+        address{
+            color:rgb(220, 227, 255);
+            margin-top: 80%;
+        }
+        /* audio{
+            filter: contrast(70%);
+            width: 150px;
+            height: 25px;
+            position: relative;
+            z-index: -2;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <div class="cursor" id="my_cursor"></div> -->
+    <div class="cursor"></div>
+    <div class="cursor_follower"></div>
+    <header>
+        <nav>
+            <h1 id="logo">Hyeonizoo</h1>
+            <ul class="gnbMenu">
+                <li><a href="#">work</a></li>
+                <li><a href="#">profile</a></li>
+                <li><a href="#">contact</a></li>
+                <li><a href="#">story</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="profileSection">
+        <img src="source/char2.jpg" alt="프로필 이미지">
+        <h2>Ban Hyeon Ji</h2>
+        <hr>
+        <!-- <p class="myLink">
+            <audio autoplay controls onloadstart="this.volume=0.2">
+                <source src="audio/리리에(RiRie)-그것은 돌연히.mp3">
+            </audio>
+        </p> -->
+        <p class="myLink">
+            <a href="https://cafe.naver.com/kwdmd" target="_blank">Kaywon univ. Desital Media Design</a><br>
+            <a href="mailto:rdhe12@kaywon.ac.kr">rdhd12@kaywon.ac.kr</a>
+        </p>
+
+        <article>
+            <h3>@hye___on</h3>
+        </article>
+
+        <footer>
+            <address class="myLink">https://github.com/Hyeonizoo</address>
+        </footer>
+
+    </section>
+</body>
+</html>
