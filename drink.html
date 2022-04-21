@@ -1,0 +1,313 @@
+<!DOCTYPE html><!-- 22161021 반현지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUM, YUMMY.</title>
+
+    <script>
+        function buy(){
+            confirm("구매하시겠습니까?");
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        body{
+            font-family: 'pretendard';
+            background-color: #033c59;
+        }
+        .clearfix{
+                content: "";
+                clear:both; 
+                display: table;
+        }
+        header, #gnbMenu li{
+            font-family: '카페24 써라운드','pretendard','나눔고딕';
+        }
+
+        header{
+            width: 1547px;
+            height: 247px;
+            background-image: url("source/banner.png");
+            background-repeat: no-repeat;
+            position: fixed;
+            z-index: 999;
+            margin-left: 300px;
+        }
+        h1{
+            width: 300px;
+            margin: 25px auto;
+            padding: 10px;
+            color: #42210B;
+        }
+        #logo{
+            font-size: 20px;
+            margin: 30px 0 40px 0;
+        }
+        #sideBar{
+            width: 410px;
+            height: 1800px;
+            background-color: #033c59;
+            position: fixed;
+        }
+        #menu{
+            background-image: url("source/pannel_bar.png");
+            background-repeat: no-repeat;
+            position: relative;
+            width: 367px;
+            padding: 20px 0 0 0;
+            margin-top: 217px;
+            margin-left: 117px;
+            float: left;
+            z-index: 2;
+        }
+        ul#gnbMenu{
+            margin-top: 50px;
+            height: 550px;
+        }
+        #gnbMenu a{
+            display: inline-block;
+            margin: 20px;
+        }
+        a{
+            text-decoration: none;
+            text-align: center;
+            color: #42210B
+        }
+        a:hover{
+            color: blue;
+        }
+        #gnbMenu li{
+            list-style: none;
+            background-image: url("source/pannel_other.png");
+            background-repeat: no-repeat;
+            width: 195px;
+            height: 60px;
+            margin: 10px 0;
+        }
+        #gnbMenu li:nth-child(3){
+            background-image: url("source/pannel_now.png");
+        }
+        #mainContents{
+            background-color: #FFF8D9;
+            float: left;
+            width: 1320px;
+            margin: 150px 0 0 410px;
+            position: absolute;
+            padding: 50px 0;
+            min-width: 1024px;
+            max-width: 1920px;
+            min-height: 550px;
+            z-index: -10;
+        }
+        #section1{
+            width: 1070px;
+        }
+        #drinkBack{
+            position: fixed;
+            margin-top: 90px;
+            margin-left: 55px;
+            z-index: -1;
+        }
+        form{
+            display: inline-block;
+            margin-left: 90px;
+        }
+        .item{
+            list-style: none;
+            margin: 20px 20px 20px 20px;
+            font-size: 20px;
+        }
+        .button a{
+            background-image: url("source/btn.png");
+            display: inline-block;
+            width: 80px;
+            height: 20px;
+        }
+        .item a:hover{
+            background-image: url("source/btn_select.png");
+        }
+        .price{
+            font-size: 15px;
+            background-color: rgb(255, 227, 207);
+            border-radius: 5%;
+            width: 50px;
+            margin: 0 auto;
+        }
+        .subject{
+            font-size: 13px;
+            color:rgb(223, 194, 173);
+        }
+        
+        #machine1{
+            width: 130px;
+            height: 461px;
+            background-image: url("source/muchine_back2.png");
+            position: fixed;
+            margin: 90px 0 0 1140px;
+        }
+        #machine1 p{
+            text-align: left;
+            margin: 5px 0 0 20px;
+            color: #ff9a66;
+            font-size: 15px;
+        }
+        #machine1 p:first-child{
+            margin-top: 120px;
+        }
+        footer{
+            background-image: url("source/floor.png");
+            background-repeat: no-repeat;
+            width: 1547px;
+            height: 208px;
+            margin-top: 770px;
+            margin-left: 300px;
+            position: fixed;
+            z-index: 5;
+        }
+        #hide{
+            background-color: #033c59;
+            width: 1500px;
+            height: 2500PX;
+        }
+        .hidden{
+            display: none;
+        }
+        footer #copyright{
+            margin-top: 120px;
+            color: #886857;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html"><h1>YUM, YUMMY.</h1></a>
+        </div>
+    </header>
+    <div id="sideBar">
+        <nav id="menu">
+            <div></div>
+            <ul id="gnbMenu">
+                <li><a href="index.html">HELLO</a></li>
+                <li><a href="snack.html">SNACK</a></li>
+                <li><a href="drink.html">DRINK</a></li>
+                <li><a href="random.html">RANDOM</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="mainContents">
+        <section id="section1">
+            <h2 class="hidden">자판기</h2>
+            <div id="drinkBack">
+                <img src="source/machine_back.png">
+            </div>
+            <div id="machine1">
+                <p>← Click!</p>
+                <p>자판기에서<br>음료를<br>뽑아보세요!</p>
+            </div>
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink1.png"></li>
+                                <li class="price">1,200</li>
+                                <li class="subject">오렌지주스</li>
+                                <li class="button"><a href="#오렌지주스" onclick="buy();"></a></button></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink2.png"></li>
+                                <li class="price">1,500</li>
+                                <li class="subject">바나나우유</li>
+                                <li class="button"><a href="#바나나우유" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink3.png"></li>
+                                <li class="price">1,200</li>
+                                <li class="subject">초코우유</li>
+                                <li class="button"><a href="#초코우유" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink4.png"></li>
+                                <li class="price">2,200</li>
+                                <li class="subject">복숭아 아이스티</li>
+                                <li class="button"><a href="#복숭아아이스티" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink5.png"></li>
+                                <li class="price">1,500</li>
+                                <li class="subject">모구모구</li>
+                                <li class="button"><a href="#모구모구" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink6.png"></li>
+                                <li class="price">1,500</li>
+                                <li class="subject">포카리스웨트</li>
+                                <li class="button"><a href="#포카리스웨트" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink7.png"></li>
+                                <li class="price">1,700</li>
+                                <li class="subject">콜라</li>
+                                <li class="button"><a href="#콜라" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink8.png"></li>
+                                <li class="price">1,900</li>
+                                <li class="subject">사이다</li>
+                                <li class="button"><a href="#사이다" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink9.png"></li>
+                                <li class="price">2,500</li>
+                                <li class="subject">커피</li>
+                                <li class="button"><a href="#커피" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="item">
+                                <li><img src="source/drink10.png"></li>
+                                <li class="price">800</li>
+                                <li class="subject">식혜</li>
+                                <li class="button"><a href="#식혜" onclick="buy();"></a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </div>
+    <footer class="clearfix">
+        <div id="copyright">
+            <p>Kaywon Univ. Degital Media Design</p>
+            <p>ⓒ Ban HyeonJi</p>
+        </div>
+        <div id="hide"></div>
+    </footer>
+</body>
+</html>

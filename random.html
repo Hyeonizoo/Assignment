@@ -5,13 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YUM, YUMMY.</title>
-
+    <script>
+        function image_onclick(){
+            var arrImage = new Array("source/drink1.png","source/drink2.png","source/drink3.png",
+            "source/drink4.png","source/drink5.png","source/drink6.png","source/drink7.png",
+            "source/drink8.png","source/drink9.png","source/drink10.png","source/food1.png",
+            "source/food2.png","source/food3.png","source/food4.png","source/food5.png",
+            "source/food6.png","source/food7.png","source/food8.png","source/food9.png",
+            "source/food10.png","source/food11.png","source/food12.png","source/food13.png",
+            "source/bread1.png","source/bread2.png","source/bread3.png","source/snack1.png",
+            "source/snack2.png","source/snack3.png","source/snack4.png","source/snack5.png",
+            "source/noodle1.png","source/noodle2.png","source/noodle3.png","source/noodle4.png",
+            "source/noodle5.png");
+            var imgSource = document.targetImg;
+            var intRandom = Math.round(Math.random()*35);
+            while(imgSource.src.indexOf(arrImage[intRandom])!= -1){
+                intRandom = Math.round(Math.random()*35);
+            }
+            imgSource.src=arrImage[intRandom];
+        }
+    </script>
     <style>
         *{
             margin: 0;
             padding: 0;
             text-align: center;
-            max-width: 1920px;
         }
         body{
             font-family: 'pretendard';
@@ -22,8 +40,11 @@
                 clear:both;
                 display: table;
         }
-        header, #gnbMenu li, #bigText1, #bigText2{
+        header, #gnbMenu li, #textBox h3{
             font-family: '카페24 써라운드','pretendard','나눔고딕';
+        }
+        p{
+            color:#825537;
         }
         header{
             width: 1547px;
@@ -85,7 +106,7 @@
             height: 60px;
             margin: 10px 0;
         }
-        #gnbMenu li:first-child{
+        #gnbMenu li:last-child{
             background-image: url("source/pannel_now.png");
         }
         #mainContents{
@@ -100,82 +121,50 @@
             min-height: 550px;
             z-index: -10;
         }
-        #p_wrap1{
-            position: absolute;
-        }
-        #bigText1{
+        #content1{
             float: left;
-            text-align: left;
-            width: 500px;
-            margin-top: 125px;
-            margin-left: 120px;
-            font-size: 55px;
+            width: 600px;
         }
-        #text1{
-            margin-top: 300px;
-            margin-left: 120px;
-            text-align: left;
-            width: 210px;
-            /* float: left; */
+        #content1 #textBox{
+            margin: 200px 0 0 100px;
+            width: 400px;
         }
-        #text1::before{
-            content: "←";
+        #textBox h3{
+            font-size: 40px;
+            margin-bottom: 15px;
         }
-        #image_wrap{
-            background-color: rgb(248, 231, 255);
-            width: 700px;
-            height: 380px;
-            display: inline-block;
-            margin: 80px 0 0 380px;
-            z-index: -1;
+        #textBox p{
+            margin: 5px 0 0 0;
         }
-        #slideImg img{
-            width: 150px;
+        #content2{
+            float: left;
+            width: 660px;
         }
-        #slideImg{
-            -webkit-animation: loop 5s infinite linear;
-            animation: loop 10s infinite linear;
-        }
-        #text{
-            float: right;
-            margin-right: 125px;
-            width: 320px;
-            height: 19px;
+        #content2 h3{
+            position: absolute;
+            margin: 25px 209px;
             color: #42210B;
         }
-        #slideImg img{
-            width: 150px;
-            margin: 0 10px;
+        #content2 #item{
+            width: 250px;
+            height: 250px;
+            margin-top: 100px;
         }
-        #slideImg{
-            -webkit-animation: loop 5s infinite linear;
-            animation: loop 10s infinite linear;
-            margin: 20px auto;
-            float:right;
-            width: 1100px;
+        #random{
+            background-image: url("source/randomMachine.png");
+            width: 606px;
+            height: 481px;
+            margin-top: 50px;
         }
-        @keyframes loop{
-            100%{
-                -webkit-transform: translateX(100%);
-                transform: translateX(-125%);
-            }
+        #content2 #push{
+            display: block;
+            margin: 40px 0 0 248px;
         }
-        #p_wrap2{
-            margin-top: 280px;
+        #content2 #push:hover{
+            transform:scale(1.1);
         }
-
-        #text2{
-            font-size: 25px;
-        }
-
-        #bigText2{
-            font-size: 75px;
-            margin: 15px;
-        }
-
-        #text3{
-            margin-top: 35px;
-            margin-bottom: 350px;
+        #content2 p{
+            margin-top: 15px;
         }
         footer{
             background-image: url("source/floor.png");
@@ -220,38 +209,23 @@
     </div>
     <div id="mainContents">
         <section id="content1">
-            <h2 class="hidden">content1</h2>
-            <div id="p_wrap1">
-            <p id="bigText1">
-                어서오세요!<br>
-                오늘 뭐 좀 드셨나요?
-            </p>
-            <p id="text1">
-                Click Menu, eat something
-            </p>
+            <h2 class="hidden">뽑기</h2>
+            <div id="textBox">
+            <h3>오늘 뭐 먹지?</h3>
+            <p>먹고 싶은 음식을 정하지 못했나요?<br>
+            걱정하지 마세요! 오른쪽에 있는 기계의 <span style=color:red><strong>PUSH 버튼</strong></span>을 누르면<br>
+            음식을 랜덤으로 뽑을 수 있어요.</p>
+            <p>그럼, 지금 바로 뽑아볼까요?</p>
             </div>
-            <p id="image_wrap"><img src="source/window.png"></p>
         </section>
-        <P id="text">혹시 바쁘다고, 귀찮다고 잘 안 챙겨 먹진 않았나요?</P>
-        <P id="slideImg"><img src="source/slidImg1.png"><img src="source/slidImg2.png">
-            <img src="source/slidImg3.png"><img src="source/slidImg4.png">
-            <img src="source/slidImg5.png"></P>
         <section id="content2">
-            <h2 class="hidden">section2</h2>
-            <div id="p_wrap2">
-                <p id="text2">
-                    <b>맛있는 걸 먹으면 기분이 좋잖아요.</b>
-                </p>
-                <p id="bigText2">
-                    enjoy food, be happy
-                </p>
-                <p id="text3">
-                    간단하게 먹을 수 있는 맛있는 음식들로<br>
-                    오늘도 Yum, Yummy 하세요!
-                </p>
+            <div id="random">
+                <h3>두구두구.. 뭐가 나올까요!?</h3>
+               <img src="source/drink1.png" name="targetImg" id=item>
+               <img src="source/push.png" id="push" onclick="image_onclick()" >
+                <p>몇 번이고 다시 뽑을 수 있어요!</p>
             </div>
         </section>
-        
     </div>
     <footer class="clearfix">
         <div id="copyright">

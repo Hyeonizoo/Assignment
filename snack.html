@@ -1,0 +1,615 @@
+<!DOCTYPE html><!-- 22161021 반현지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUM, YUMMY.</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        body{
+            font-family: 'pretendard';
+            background-color: #033c59;
+        }
+        .clearfix{
+                content: "";
+                clear:both;
+                display: table;
+        }
+        header, #gnbMenu li, #content1 h3, #variety{
+            font-family: '카페24 써라운드','pretendard','나눔고딕';
+        }
+        p{
+            color:#825537;
+        }
+        header{
+            width: 1547px;
+            height: 247px;
+            background-image: url("source/banner.png");
+            background-repeat: no-repeat;
+            position: fixed;
+            z-index: 999;
+            margin-left: 300px;
+        }
+        h1{
+            width: 300px;
+            margin: 25px auto;
+            padding: 10px;
+            color: #42210B;
+        }
+        #logo{
+            font-size: 20px;
+            margin: 30px 0 40px 0;
+        }
+        #sideBar{
+            width: 410px;
+            height: 1800px;
+            background-color: #033c59;
+            position: fixed;
+        }
+        #menu{
+            background-image: url("source/pannel_bar.png");
+            background-repeat: no-repeat;
+            position: relative;
+            width: 367px;
+            padding: 20px 0 0 0;
+            margin-top: 217px;
+            margin-left: 117px;
+            float: left;
+            z-index: 2;
+        }
+        ul#gnbMenu{
+            margin-top: 50px;
+            height: 550px;
+        }
+        #gnbMenu a{
+            display: inline-block;
+            margin: 20px;
+        }
+        a{
+            text-decoration: none;
+            text-align: center;
+            color: #42210B
+        }
+        a:hover{
+            color: blue;
+        }
+        #gnbMenu li{
+            list-style: none;
+            background-image: url("source/pannel_other.png");
+            background-repeat: no-repeat;
+            width: 195px;
+            height: 60px;
+            margin: 10px 0;
+        }
+        #gnbMenu li:nth-child(2){
+            background-image: url("source/pannel_now.png");
+        }
+        #mainContents{
+            background-color: #FFF8D9;
+            float: left;
+            width: 1320px;
+            margin: 150px 0 0 410px;
+            position: absolute;
+            padding: 50px 0;
+            min-width: 1024px;
+            max-width: 1920px;
+            min-height: 550px;
+            z-index: -10;
+        }
+        #container{
+            width: 1080px;
+            margin: 0 auto;
+        }
+        .box{
+            float: left;
+            width: 180px;
+            height: 220px;
+            margin: 0 0 0 30px;
+            position: relative;
+        }
+        .snacks{
+            position: absolute;
+            top: 40px;
+            left: 0;
+            z-index: -1;
+        }
+        .pins{
+            position: absolute;
+            top: 0;
+            left: 80px;
+        }
+        .box:nth-child(2), .box:nth-child(5){
+            top: 20px;
+        }
+        .box:nth-child(3), .box:nth-child(4){
+            top: 40px;
+        }
+        .box:first-child:hover, .box:nth-child(2):hover, .box:nth-child(3):hover{
+            transform:rotate(10deg);
+        }
+        .box:nth-child(4):hover, .box:nth-child(5):hover, .box:nth-child(6):hover{
+            transform:rotate(-10deg);
+        }
+
+        #line{
+            width: 1191px;
+            height: 67px;
+            background-image: url("source/line.png");
+            background-repeat: no-repeat;
+            margin-top: 30px;
+            margin-left: 55px;
+            z-index: -1;
+        }
+        .overlay{
+            position: fixed;
+            width: 1320px;
+            height: 650px;
+            top: 150px;
+            background-color: rgba(7, 5, 5, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 999;
+        }
+        .overlay:target{
+            visibility: visible;
+            opacity: 1;
+        }
+        .popup{
+            margin-top: 340px;
+            margin-left: 650px;
+            padding: 10px;
+            width: 600px;
+            height: 300px;
+            border-radius: 10px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.95);
+            z-index: 5;
+        }
+        .popup .close{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 5px;
+            font-size: 25px;
+            color: #42210B;
+        }
+
+        .popup img{
+            float: left;
+            margin: 65px 35px 40px 80px;
+        }
+
+        .information{
+            float: left;
+            margin: 100px 0 0 0;
+            width: 230px;
+        }
+        .information .snackName{
+            text-align: left;
+        }
+        .information .snackPrice{
+            color: rgb(128, 95, 77);
+            text-align: left;
+            margin: 5px 0 10px;
+            font-size: 12px;
+        }
+        .information .snackText{
+            text-align: left;
+            font-size: 15px;
+        }
+        #content1 h3{
+            margin: 50px auto 5px;
+            display: inline-block;
+            font-size: 30px;
+        }
+        #content2{
+            margin: 0 auto;
+        }
+        #content2 h3{
+            margin: 0 auto 5px;
+            margin-top: 100px;
+        }
+        #content2 #variety{
+            font-size: 30px;
+        }
+        #arrowBottom{
+            width: 40px;
+            display: inline-block;
+            margin: 15px 0 160px;
+        }
+        #itemBox{
+            position: relative;
+            width: 1201px;
+            height: 1168px;
+        }
+        #itemBox form{
+            margin-left: 30px;
+            width: 1200px;
+            position: absolute;
+            float: left;
+        }
+        .item{
+            margin-top: 32px;
+        }
+        .item li{
+            list-style-type: none;
+        }
+        .item img{
+            margin: 0px 20px 0 20px;
+        }
+        .itemImg:hover{
+            transform: scale(1.1);
+        }
+        .itemName{
+            color: #FFF8D9;
+        }
+        #bg{
+            width: 1201px;
+            height: 1018px;
+            background-image: url("source/snack_back.png");
+            position: absolute;
+            float: left;
+            margin: 20px 0 150px 0px;
+            z-index: -1;
+        }
+        #content3 p{
+            margin: 5px 0 15px 0;
+        }
+        #content3 textarea{
+            display: block;
+            margin: 0 auto;
+            background-color: #FFF8D9;
+            border-color: #825537;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        #content3 #opinion{
+            margin: 5px;
+            background-color: #FFF8D9;
+            border-color: #825537;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        #content3 #reWrite{
+            margin-bottom: 150px;
+            background-color: #FFF8D9;
+            border-color: #825537;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        footer{
+            background-image: url("source/floor.png");
+            background-repeat: no-repeat;
+            width: 1547px;
+            height: 208px;
+            margin-top: 770px;
+            margin-left: 300px;
+            position: fixed;
+            z-index: 5;
+        }
+        #hide{
+            background-color: #033c59;
+            width: 1500px;
+            height: 2500PX;
+        }
+        .hidden{
+            display: none;
+        }
+        footer #copyright{
+            margin-top: 120px;
+            color: #886857;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html"><h1>YUM, YUMMY.</h1></a>
+        </div>
+    </header>
+    <div id="sideBar">
+        <nav id="menu">
+            <div></div>
+            <ul id="gnbMenu">
+                <li><a href="index.html">HELLO</a></li>
+                <li><a href="snack.html">SNACK</a></li>
+                <li><a href="drink.html">DRINK</a></li>
+                <li><a href="random.html">RANDOM</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="mainContents">
+        <section id="content1">
+            <h2 class="hidden">content1</h2>
+            <h3 class="clearfix">어떤 걸 먹을까요?</h3>
+            <p>먹고 싶은 음식을 클릭해 보세요!</p>
+            <div class="container">
+                <div class="box">
+                    <div class="pins"><img src="source/pinL.png"></div>
+                    <div class="snacks"><a href="#pop1"><img src="source/bread3.png"></a></div>    
+                </div>             
+                <div class="box">
+                    <div class="pins"><img src="source/pinL.png"></div>
+                    <div class="snacks"><a href="#pop2"><img src="source/bread2.png"></a></div>    
+                </div>             
+                <div class="box">
+                    <div class="pins"><img src="source/pinL.png"></div>
+                    <div class="snacks"><a href="#pop3"><img src="source/bread1.png"></a></div>    
+                </div>             
+                <div class="box">
+                    <div class="pins"><img src="source/pinR.png"></div>
+                    <div class="snacks"><a href="#pop4"><img src="source/food3.png"></a></div>    
+                </div>             
+                <div class="box">
+                    <div class="pins"><img src="source/pinR.png"></div>
+                    <div class="snacks"><a href="#pop5"><img src="source/food2.png"></a></div>    
+                </div>             
+                <div class="box">
+                    <div class="pins"><img src="source/pinR.png"></div>
+                    <div class="snacks"><a href="#pop6"><img src="source/food1.png"></a></div>    
+                </div>
+                <p id="line"></p>
+
+                <div class="popup_button">
+                    <div id="pop1" class="overlay">
+                        <div class="popup">
+                            <img src="source/bread3.png">
+                            <a href="#" class="close">&times;</a>
+                            <div class="information">
+                                <h4 class="snackName">단팥생크림빵</h4>
+                                <p class="snackPrice">2,600원</p>
+                                <p class="snackText">부드러운 빵에 연세우유 생크림과<br>
+                                    단팥이 듬뿍 들어간 크림빵</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup_button">
+                    <div id="pop2" class="overlay">
+                        <div class="popup">
+                            <img src="source/bread2.png">
+                            <a href="#" class="close">&times;</a>
+                            <div class="information">
+                            <h4 class="snackName">포켓몬파이리핫소스</h4>
+                                <p class="snackPrice">1,500원</p>
+                                <p class="snackText">한입 베어물면 파이리처럼 입안에서<br>
+                                화르륵 불이나는 호떡<br>무슨 포켓몬이 나올까?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <div class="popup_button">
+                    <div id="pop3" class="overlay">
+                        <div class="popup">
+                            <img src="source/bread1.png">
+                            <a href="#" class="close">&times;</a>
+                            <div class="information">
+                                <h4 class="snackName">쿠키런버터마들렌</h4>
+                                <p class="snackPrice">2,000원</p>
+                                <p class="snackText">부드럽고 촉촉한 식감의 고소한<br>
+                                마들렌이 2개 들어있으며,<br>쿠키런씰도 있다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup_button">
+                    <div id="pop4" class="overlay">
+                        <div class="popup">
+                            <img src="source/food3.png">
+                            <a href="#" class="close">&times;</a>
+                            <div class="information">
+                                <h4 class="snackName">뉴오리지널치킨버거</h4>
+                                <p class="snackPrice">3,000원</p>
+                                <p class="snackText">통닭가슴살패티에 진한 체다치즈와<br>
+                                스리라차 마요소스를 가득 올린 햄버거</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup_button">
+                    <div id="pop5" class="overlay">
+                        <div class="popup">
+                            <img src="source/food2.png">
+                            <a href="#" class="close">&times;</a>
+                            <div class="information">
+                                <h4 class="snackName">NCT소시지핫도그</h4>
+                                <p class="snackPrice">3,000원</p>
+                                <p class="snackText">핫소스의 매콤함과 양파, 육즙가득한<br>
+                                소시지가 들어간 핫도그</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup_button">
+                    <div id="pop6" class="overlay">
+                        <div class="popup">
+                            <img src="source/food1.png">
+                            <a href="#" class="close">&times;</a>
+                            <div class="information">
+                                <h4 class="snackName">직화후랑크바치즈</h4>
+                                <p class="snackPrice">2,500원</p>
+                                <p class="snackText">불맛 가득한 직화후랑크 치즈맛 핫바<br>
+                                간식과 안주로 제격!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content2" class="clearfix">
+            <h2 class="hidden">content2</h2>
+            <h3>다른 음식도 더 살펴볼까요?</h3>
+            <p>스크롤을 아래로 내려주세요</p>
+            <img src="source/scrollDown.png" id="arrowBottom">
+
+            <h3 id="variety">즉석식품, 라면, 과자</h3>
+            <p>20가지의 다양한 음식이 준비되어 있어요.</p>
+            <div id="itemBox">
+                <form>
+                    <table id="table">
+                        <tr id="items">
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food4.png"></li>
+                                    <li class="itemName">삼각김밥</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food5.png"></li>
+                                    <li class="itemName">샌드위치</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food6.png"></li>
+                                    <li class="itemName">김밥</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food7.png"></li>
+                                    <li class="itemName">샐러드</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food8.png"></li>
+                                    <li class="itemName">떡튀순</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="item">
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food9.png"></li>
+                                    <li class="itemName">어묵탕</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food10.png"></li>
+                                    <li class="itemName">떡볶이</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food11.png"></li>
+                                    <li class="itemName">소고기죽</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food12.png"></li>
+                                    <li class="itemName">육개장</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/food13.png"></li>
+                                    <li class="itemName">닭발</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="item">
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/noodle1.png"></li>
+                                    <li class="itemName">참깨라면</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/noodle2.png"></li>
+                                    <li class="itemName">신라면</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/noodle3.png"></li>
+                                    <li class="itemName">불닭볶음면</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/noodle4.png"></li>
+                                    <li class="itemName">육개장</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/noodle5.png"></li>
+                                    <li class="itemName">짜파게티</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="item">
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/snack1.png"></li>
+                                    <li class="itemName">홈런볼</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/snack2.png"></li>
+                                    <li class="itemName">포카칩</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/snack3.png"></li>
+                                    <li class="itemName">나초</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/snack4.png"></li>
+                                    <li class="itemName">새우깡</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="item">
+                                    <li class="itemImg"><img src="source/snack5.png"></li>
+                                    <li class="itemName">초코송이</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <div id="bg"></div>
+            </div>
+        </section>
+        <section id="content3">
+            <h2 class="hidden">content3</h2>
+            <h3>더 많은 음식을 원한다면?</h3>
+            <p>자유롭게 의견을 남겨주세요</p>
+            <p>
+                <textarea cols="100" rows="8"></textarea>
+            </p>
+            <p>
+                <button type="submit" id=opinion onclick="alert('소중한 의견 감사합니다.')">
+                보내기</button>
+                <button type="reset" id="reWrite">다시쓰기</button>
+            </p>
+        </section>
+    </div>
+    <footer class="clearfix">
+        <div id="copyright">
+            <p>Kaywon Univ. Degital Media Design</p>
+            <p>ⓒ Ban HyeonJi</p>
+        </div>
+        <div id="hide"></div>
+    </footer>
+</body>
+</html>
