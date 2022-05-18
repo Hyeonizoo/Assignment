@@ -20,17 +20,16 @@ numberSetting(); // 함수 호출
 btnPrev.onclick = function () {
     console.log("이전버튼");
 
-    
-        // 첫번째 이미지에서 이전 버튼을 누르면 마지막 이미지가 나오도록 하기 위해 조건문 사용
-        if (myNum == 1) { // myNum이 1이면
-            myNum = totalNum; // myNum 값을 totalNum으로 변경
-        }
-        else { // myNum의 값이 1이 아닐 경우
-            position -= ImgWidth
-            document.getElementById("banner").style.right = position + "px";
-            myNum--; // 1씩 감소
-        }
-
+    // 첫번째 이미지에서 이전 버튼을 누르면 마지막 이미지가 나오도록 하기 위해 조건문 사용
+    if (myNum == 1) { // myNum이 1이면
+        myNum = totalNum; // myNum 값을 totalNum으로 변경
+        document.getElementById("banner").style.left = 0 + "px"; // left 값을 0px로 변경
+    }
+    else { // myNum의 값이 1이 아닐 경우
+        position -= ImgWidth
+        document.getElementById("banner").style.right = position + "px";
+        myNum--; // 1씩 감소
+    }
     numberSetting(); // numberSetting 함수 호출
 };
 
@@ -38,29 +37,17 @@ btnPrev.onclick = function () {
 // btn_next(다음 버튼) 클릭시 함수 실행
 btnNext.onclick = function () {
     console.log("다음버튼");
-        // 마지막 이미지에서 다음 버튼을 누르면 첫번째 이미지가 나오도록 하기 위해 조건문 사용
-        if (myNum == totalNum) { // myNum이 totalNum 값과 같으면
-            myNum = 1; // myNum 값을 1로 변경
-            // document.getElementById("banner").style.left = "0px";
-        }
-        else { // myNum이 totalNum 값과 같지 않다면
-            position += ImgWidth
-            document.getElementById("banner").style.right = position + "px";
-            myNum++; // 1씩 증가        
-        }
+    // 마지막 이미지에서 다음 버튼을 누르면 첫번째 이미지가 나오도록 하기 위해 조건문 사용
+    if (myNum == totalNum) { // myNum이 totalNum 값과 같으면
+        myNum = 1; // myNum 값을 1로 변경
+        document.getElementById("banner").style.left = 0 + "px";
+    }
+    else { // myNum이 totalNum 값과 같지 않다면
+        position += ImgWidth
+        document.getElementById("banner").style.right = position + "px";
+        myNum++; // 1씩 증가        
+    }
     numberSetting(); // numberSetting 함수 호출
 
     console.log(document.getElementById("banner"));
-
-    // pic(롤링배너 이미지)에 스타일값 적용
-    // document.getElementById("pic").style.border = "3px solid blue";
-    // document.getElementById("banner").style.right = "1200px";
-
-    // function init() {
-    //     btnPrev.setAttribute('disabled', 'true');
-    //     btnPrev.addEventListener("click", prev);
-    //     btnNext.addEventListener("click", next);
-    // }
-
-    // init();
 }
