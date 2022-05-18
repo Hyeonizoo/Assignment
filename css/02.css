@@ -28,10 +28,10 @@ button {
     z-index: 1;
 }
 #btn_prev {
-    left: 15%;
+    left: 13%;
 }
 #btn_next {
-    right: 15%;
+    right: 13%;
 }
 p {
     display: inline;
