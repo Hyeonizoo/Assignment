@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h1 {
+    margin: 50px auto 30px;
+    width: 250px;
+}
+.album {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#banner {
+    width: 1200px;
+    position: relative;
+    display: flex;
+}
+#banner .pic {
+    margin: 0 auto;
+    width: 1200px;
+}
+button {
+    position: absolute;
+    top: 500px;
+    padding: 10px;
+    z-index: 1;
+}
+#btn_prev {
+    left: 15%;
+}
+#btn_next {
+    right: 15%;
+}
+p {
+    display: inline;
+}
