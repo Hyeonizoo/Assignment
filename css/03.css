@@ -1,0 +1,38 @@
+* {margin: 0; padding: 0;}
+body {
+    background-color: #109ceb;
+    color: white;
+    text-align: center;
+}
+h2 {
+    font-size: 40px;
+    margin: 80px 0 30px;
+}
+#picSet {
+    border: 5px solid white;
+    width: 967px;
+    height: 544px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#picSet img {
+    position: absolute;
+    top: 0;
+    transition: left 0.7s;
+}
+button {
+    width: 60px;
+    height: 30px;
+    position: relative;
+    top: -270px;
+    border: 5px solid #fff;
+    background-color: #fff;
+    border-radius: 50px;
+}
+#prev_btn {
+    right: 520px;
+}
+#next_btn {
+    left: 520px;
+}
