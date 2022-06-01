@@ -4,35 +4,105 @@ body {
     color: white;
     text-align: center;
 }
-h2 {
+#section1 h2 {
     font-size: 40px;
-    margin: 80px 0 30px;
+    margin-top: 80px;
 }
-#picSet {
-    border: 5px solid white;
-    width: 967px;
-    height: 544px;
+#section1 #temp {
+    margin: 20px 0 10px;
+}
+#section1 #imgSet {
     position: relative;
+    width: 966px;
+    height: 544px;
     margin: 0 auto;
+}
+#section1 #imgSet #picSet {
+    width: 966px;
+    height: 544px;
+    border: 5px solid white;
+    position: relative;
     overflow: hidden;
 }
-#picSet img {
+#section1 #imgSet #picSet img {
     position: absolute;
     top: 0;
     transition: left 0.7s;
 }
-button {
-    width: 60px;
-    height: 30px;
-    position: relative;
-    top: -270px;
-    border: 5px solid #fff;
+#section1 #imgSet #picSet dl {
+    position: absolute;
+    z-index: 1;
+    bottom: -150px;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    width: 926px;
+    padding: 20px;
+}
+#section1 #imgSet #picSet dd {
+    color: #ccc;
+    font-weight: 200;
+    font-size: 14px;
+    width: 800px;
+    margin: 10px auto 0;
+}
+#section1 #imgSet #picSet dl.active {
+    animation: textMotionIn 1s forwards; /* forwards : 애니메이션이 멈춘 상태 유지 */
+}
+#section1 #imgSet #picSet dl.activeOut {
+    animation: textMotionOut 1s forwards
+}
+@keyframes textMotionIn {
+    from {bottom: -100px; opacity: 0;}
+    to {bottom: 0;}
+}
+@keyframes textMotionOut {
+    from {bottom: 0; opacity: 1;}
+    to {bottom: 20px; opacity: 0;}
+}
+
+#section1 #imgSet button {
+    position: absolute;
+    top: 50%; /* 50% 내려왔을 때, 도형이 가지는 높이가 있기 때문에 */
+    margin-top: -40px; /* 그 높이의 반만큼 위로 올라가면 딱 중앙에 위치하게 됨 */
+    width: 80px;
+    height: 80px;
     background-color: #fff;
-    border-radius: 50px;
+    color: #109ceb;
+    font-size: 16px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
 }
-#prev_btn {
-    right: 520px;
+#section1 #imgSet button:hover {
+    background-color: #109ceb;
+    color: #fff;
+    border: 5px solid #fff;
 }
-#next_btn {
-    left: 520px;
+#section1 #imgSet #prev_btn {
+    left: -120px;
+}
+#section1 #imgSet #next_btn {
+    right: -120px;
+}
+
+#section1 #dotList {
+    margin-top: 50px;
+}
+#section1 #dotList li {
+    margin: 0 20px;
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#section1 #dotList li:hover {
+    background-color: gray;
+}
+#section1 #dotList li.active {
+    background-color: #fff;
+    color: black;
 }
