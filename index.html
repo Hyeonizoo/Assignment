@@ -1,264 +1,450 @@
-<!DOCTYPE html><!-- 22161021 반현지 -->
+<!DOCTYPE html>
 <html lang="ko">
 <head>
+    <!-- meta data -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUM, YUMMY.</title>
+    
+    <meta property="og:title" content="Website for Adult ADHD APP" />
 
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            max-width: 1920px;
-        }
-        body{
-            font-family: 'pretendard';
-            background-color: #033c59;
-        }
-        .clearfix{
-                content: "";
-                clear:both;
-                display: table;
-        }
-        header, #gnbMenu li, #bigText1, #bigText2{
-            font-family: '카페24 써라운드','pretendard','나눔고딕';
-        }
-        header{
-            width: 1547px;
-            height: 247px;
-            background-image: url("source/banner.png");
-            background-repeat: no-repeat;
-            position: fixed;
-            z-index: 999;
-            margin-left: 300px;
-        }
-        h1{
-            width: 300px;
-            margin: 25px auto;
-            padding: 10px;
-            color: #42210B;
-        }
-        #logo{
-            font-size: 20px;
-            margin: 30px 0 40px 0;
-        }
-        #sideBar{
-            width: 410px;
-            height: 1800px;
-            background-color: #033c59;
-            position: fixed;
-        }
-        #menu{
-            background-image: url("source/pannel_bar.png");
-            background-repeat: no-repeat;
-            position: relative;
-            width: 367px;
-            padding: 20px 0 0 0;
-            margin-top: 217px;
-            margin-left: 117px;
-            float: left;
-            z-index: 2;
-        }
-        ul#gnbMenu{
-            margin-top: 50px;
-            height: 550px;
-        }
-        #gnbMenu a{
-            display: inline-block;
-            margin: 20px;
-        }
-        a{
-            text-decoration: none;
-            text-align: center;
-            color: #42210B
-        }
-        a:hover{
-            color: blue;
-        }
-        #gnbMenu li{
-            list-style: none;
-            background-image: url("source/pannel_other.png");
-            background-repeat: no-repeat;
-            width: 195px;
-            height: 60px;
-            margin: 10px 0;
-        }
-        #gnbMenu li:first-child{
-            background-image: url("source/pannel_now.png");
-        }
-        #mainContents{
-            background-color: #FFF8D9;
-            float: left;
-            width: 1320px;
-            margin: 150px 0 0 410px;
-            position: absolute;
-            padding: 50px 0;
-            min-width: 1024px;
-            max-width: 1920px;
-            min-height: 550px;
-            z-index: -10;
-        }
-        #p_wrap1{
-            position: absolute;
-        }
-        #bigText1{
-            float: left;
-            text-align: left;
-            width: 500px;
-            margin-top: 125px;
-            margin-left: 120px;
-            font-size: 55px;
-        }
-        #text1{
-            margin-top: 300px;
-            margin-left: 120px;
-            text-align: left;
-            width: 210px;
-            /* float: left; */
-        }
-        #text1::before{
-            content: "←";
-        }
-        #image_wrap{
-            background-color: rgb(248, 231, 255);
-            width: 700px;
-            height: 380px;
-            display: inline-block;
-            margin: 80px 0 0 380px;
-            z-index: -1;
-        }
-        #slideImg img{
-            width: 150px;
-        }
-        #slideImg{
-            -webkit-animation: loop 5s infinite linear;
-            animation: loop 10s infinite linear;
-        }
-        #text{
-            float: right;
-            margin-right: 125px;
-            width: 320px;
-            height: 19px;
-            color: #42210B;
-        }
-        #slideImg img{
-            width: 150px;
-            margin: 0 10px;
-        }
-        #slideImg{
-            -webkit-animation: loop 5s infinite linear;
-            animation: loop 10s infinite linear;
-            margin: 20px auto;
-            float:right;
-            width: 1100px;
-        }
-        @keyframes loop{
-            100%{
-                -webkit-transform: translateX(100%);
-                transform: translateX(-125%);
-            }
-        }
-        #p_wrap2{
-            margin-top: 280px;
-        }
+    <meta property="og:description" content="어금니 앱 소개 웹사이트" />
 
-        #text2{
-            font-size: 25px;
-        }
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Website for Adult ADHD APP" />
+    <meta name="twitter:description" content="어금니 앱 소개 웹사이트" />
 
-        #bigText2{
-            font-size: 75px;
-            margin: 15px;
-        }
+    <meta name="description" content="어금니 앱 소개 웹사이트">
+    <meta name='keywords' content='어금니, 성인 ADHD, 성인 ADHD 진단, 성인 ADHD 치료, 성인 ADHD 관리' />
 
-        #text3{
-            margin-top: 35px;
-            margin-bottom: 350px;
-        }
-        footer{
-            background-image: url("source/floor.png");
-            background-repeat: no-repeat;
-            width: 1547px;
-            height: 208px;
-            margin-top: 770px;
-            margin-left: 300px;
-            position: fixed;
-            z-index: 5;
-        }
-        #hide{
-            background-color: #033c59;
-            width: 1500px;
-            height: 2500PX;
-        }
-        .hidden{
-            display: none;
-        }
-        footer #copyright{
-            margin-top: 120px;
-            color: #886857;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- favicon -->
+    <link rel="icon" href="./img/favicon32.ico" alt="favicon" sizes="32x32" />
+    <link rel="apple-touch-icon" href="#" alt="favicon" sizes="180x180" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/indexStyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    
+
+    <title>어금니</title>
 </head>
 <body>
     <header>
-        <div id="logo">
-            <a href="index.html"><h1>YUM, YUMMY.</h1></a>
-        </div>
-    </header>
-    <div id="sideBar">
-        <nav id="menu">
-            <div></div>
-            <ul id="gnbMenu">
-                <li><a href="index.html">HELLO</a></li>
-                <li><a href="snack.html">SNACK</a></li>
-                <li><a href="drink.html">DRINK</a></li>
-                <li><a href="random.html">RANDOM</a></li>
+        <nav>
+            <h1><a href="index.html"><img src="./img/logo.png"></a></h1>
+            <ul id="gnb">
+                <li><a href="#main2">Overview</a></li>
+                <li><a href="#main5">Video</a></li>
+                <li><a href="#main9">Design</a></li>
+                <li><a href="#">Planning</a></li>
+                <li><a href="test.html">Test</a></li>
             </ul>
         </nav>
-    </div>
-    <div id="mainContents">
-        <section id="content1">
-            <h2 class="hidden">content1</h2>
-            <div id="p_wrap1">
-            <p id="bigText1">
-                어서오세요!<br>
-                오늘 뭐 좀 드셨나요?
-            </p>
-            <p id="text1">
-                Click Menu, eat something
-            </p>
-            </div>
-            <p id="image_wrap"><img src="source/window.png"></p>
+    </header>
+    <main>
+        <section id="main1">
+            <img src="./img/main_img.png">
         </section>
-        <P id="text">혹시 바쁘다고, 귀찮다고 잘 안 챙겨 먹진 않았나요?</P>
-        <P id="slideImg"><img src="source/slidImg1.png"><img src="source/slidImg2.png">
-            <img src="source/slidImg3.png"><img src="source/slidImg4.png">
-            <img src="source/slidImg5.png"></P>
-        <section id="content2">
-            <h2 class="hidden">section2</h2>
-            <div id="p_wrap2">
-                <p id="text2">
-                    <b>맛있는 걸 먹으면 기분이 좋잖아요.</b>
-                </p>
-                <p id="bigText2">
-                    enjoy food, be happy
-                </p>
-                <p id="text3">
-                    간단하게 먹을 수 있는 맛있는 음식들로<br>
-                    오늘도 Yum, Yummy 하세요!
-                </p>
+        <section id="main2">
+            <img src="./img/overview_graph.png">
+            <section id="overview" data-aos="fade-up" data-aos-duration="2500">
+                <h2 class="pinkIndex">OVERVIEW</h2>
+                <h3>[성인 ADHD의 점진적인 증가]</h3>
+                <h4>우울증인 줄 알았는데... 성인 ADHD?</h4>
+                <p>집중의 어려움과 충동성을 특징으로 하는 신경발달질환인 <strong>성인 ADHD의 환자 수가 지속적으로
+                    증가</strong>하는 추세를 보이고 있다. 특히 16년부터 20년까지의 진료현황은 20대 75.2%, 
+                    30대 85%라는 큰 증가율을 보이고 있다.</p>
+            </section>
+            <div class="clear"></div>
+        </section>
+        <section id="main3">
+            <sercion id="userResearch">
+                <h2 class="pinkIndex">USER RESEARCH</h2>
+                <h3>집중하기 힘들고<br>충동적으로 행동하는 나</h3>
+                <ul><li>.</li><li>.</li><li>.</li></ul>
+                <h4>혹시 성인 ADHD?</h4>
+            </sercion>
+            <serction id="researchImg">
+                <img src="./img/userResearch_img1.png" data-aos="fade-left" data-aos-duration="2000">
+                <img src="./img/userResearch_img2.png" data-aos="fade-left" data-aos-duration="3000">
+                <img src="./img/userResearch_img3.png" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="300">
+            </serction>
+            <section id="researchBox">
+                <img src="./img/research_img1.png">
+                <img src="./img/research_img2.png">
+                <img src="./img/research_img3.png">
+                <img src="./img/research_img4.png">
+            </section>
+        </section>
+        <section id="main4">
+            <section id="ourMission">
+                <h2>OUR MISSION</h2>
+                <p>성인 ADHD를 진단받고 치료받는 과정까지의 더 편하고 비밀스러운 서비스의 제공</p>
+            </section>
+            <section id="missionBox">
+                <div class="mission">
+                    <ul>
+                        <li>01.</li>
+                        <li>테스트 과정의 번거로움</li>
+                    </ul>
+                </div>
+                <div class="mission">
+                    <ul>
+                        <li>02.</li>
+                        <li>정신의학과 방문의 두려움</li>
+                    </ul>
+                </div>
+                <div class="mission">
+                    <ul>
+                        <li>03.</li>
+                        <li>지속적인 관리의 어려움</li>
+                    </ul>
+                </div>
+            </section>
+            <div class="clear"></div>
+        </section>
+        <section id="main5">
+            <div id="video">
+                <iframe src="https://www.youtube.com/embed/yY0FMnspx8E" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+                clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
-        
-    </div>
-    <footer class="clearfix">
-        <div id="copyright">
-            <p>Kaywon Univ. Degital Media Design</p>
-            <p>ⓒ Ban HyeonJi</p>
-        </div>
-        <div id="hide"></div>
-    </footer>
+        <section id="main6">
+            <h2 class="pinkIndex">USER PRESONA</h2>
+            <p>증상의 심각도가 각기 다른 유저 페르소나를 설정해<br>다양한 사용자들의 니즈를 파악하고 비지니스 목표를 도출하였습니다.</p>
+            <section id="missionBox">
+                <div class="missionCard" data-aos="flip-left" data-aos-duration="1000">
+                    <h3>임진주</h3>
+                    <h4>30세 드라마 작가</h4>
+                    <div class="missionCard_line"> </div>
+                    <p>원하는 일을 하는 데도 의욕이 없고, 자꾸 일만 미루고 있어요. 
+                        제가 도대체 왜 이런 건지 모르겠어서 너무 답답해요. 누군가 제가 
+                        왜 이러는지 알려주고, 어떻게 할 지 방향을 제시해주면 좋겠어요.</p>
+                    <h5>Needs</h5>
+                    <ul>
+                        <li>증상에 대한 진단을 받고 싶어요</li>
+                        <li>전문적인 상담을 통한 컨설팅을 받고 싶어요</li>
+                        <li>일정에 대한 관리를 하고 싶어요</li>
+                    </ul>
+                </div>
+                <div class="missionCard" data-aos="flip-left" data-aos-duration="2000">
+                    <h3>석정우</h3>
+                    <h4>24세 대학생</h4>
+                    <div class="missionCard_line"> </div>
+                    <p>성인 ADHD를 앓고 있지만, 바쁜 생활로 인해 병원 방문을 못하고 있어요. 
+                        그렇다고 무작정 갔다가 아는 사람이라도 만나면 그것도 걱정이고요. 
+                        직접 병원에 가지 않아도 상담을 받고, 성인 ADHD에 대한 정보를 
+                        얻을 수 있었으면 좋겠어요.</p>
+                    <h5>Needs</h5>
+                    <ul>
+                        <li>집에서도 심도 있는 진료를 받고 싶어요</li>
+                        <li>병원에서 지속적으로 관리를 받고 싶어요</li>
+                        <li>ADHD에 대한 정보를 쉽게 얻고 싶어요</li>
+                    </ul>
+                </div>
+                <div class="missionCard" data-aos="flip-left" data-aos-duration="3000">
+                    <h3>윤희원</h3>
+                    <h4>27세 백수</h4>
+                    <div class="missionCard_line"> </div>
+                    <p>나를 알기 위한 다양한 테스트를 해보고 싶어요. 단순 흥미 위주의 테스트들 
+                        뿐만 아니라 성인 ADHD와 같은 실질적인 테스트를 하고 다른 사람들과 공유하고 싶어요.</p>
+                    <h5>Needs</h5>
+                    <ul>
+                        <li>간단한 테스트를 하고 싶어요</li>
+                        <li>나에 대한 정의를 내리고 싶어요</li>
+                        <li>사람들과 결과를 공유하고 소통하고 싶어요</li>
+                    </ul>
+                </div>
+            </section>
+            <div id="businessGoal_line" data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="300"
+            data-aos-offset="0"> </div>
+            <div id="businessGoal" data-aos="zoom-out" data-aos-duration="1000">
+                <h3>Business Goal</h3>
+                <p>간단한 내용부터 심화된 전문적인 내용까지 한번에 제공하는 서비스의 제공</p>
+                <p>더 쉽게, 더 전문적이게 다양한 사람들의 일상을 개개인에 맞춰 설계해줄 수 있는 서비스</p>
+            </div>
+        </section>
+        <section id="main7">
+            <h2 class="pinkIndex">USER JOURNEY MAP</h2>
+            <p>페르소나를 바탕으로 다양한 사용자의 여정지도를 그리고,<br>
+                앱 이용 초기 불안감에서 야기된 pain point를 도출하였습니다.
+            </p>
+            <section id="journeyMap">
+                <div class="jm_container">
+                    <ul>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>원하는 방송국 드라마<br>작가로 합격했다.<br>열정적으로 임해야지!</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>왠지 모를 무력감이 든다.<br>답답함에 충동적인 상황만<br>늘어간다.</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>그동안의 행동들이<br>ADHD로 인한 거라니,<br>치료할 수 있어 다행이다.</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>테스트 기능뿐만 아니라<br>계획까지 세워주네?<br>앱을 사용해 계획해볼까?</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>계획을 수행한 것 뿐인데<br>칭찬 리워드를 통해 포인트랑<br>상품도 제공해주네?</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>나와 같은 일을 겪는<br>주변 지인들에게도<br>이 서비스를 추천해야지!</div>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                    <section class="jm_box">
+                        <img src="./img/journeyMap_img1.png">
+                        <div class="painPoint_box">
+                            <div class="sayBox"><div>나... 잘 해낼 수 있을까?</div></div>
+                            <div class="painPoint">PAIN POINT</div>
+                        </div>
+                    </section>
+                </div>
+                <div class="jm_container">
+                    <ul>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>약이 다 떨어졌는데 도무지<br>시간이 안 나서 병원을 가지<br>못하고 있어..</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>우울증과 무기력증 때문에<br>병원을 방문했지만 대기시간도<br>길고 집중된 진료를 받지 못했어.</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>테스트를 해보긴 했는데<br>이 앱이 진짜 나를<br>도와줄 수 있을까..?</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>생각보다 더 진지하고<br>체계적인 앱이구나!<br>어디서든 원하는 선생님에게<br>진료받을 수 있어서 좋아.</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>걱정하는 가족들에게도<br>연락망을 통해 결과 리포트를<br>전송해줘서 편리하네?</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>성인 ADHD 서비스를<br>이용하면서 편하고<br>체계적인 진료에 반했어.</div>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                    <section class="jm_box">
+                        <img src="./img/journeyMap_img2.png">
+                        <div class="painPoint_box">
+                            <div class="sayBox"><div>과연 이 앱의 정보를<br>믿어도 되는 걸까?</div></div>
+                            <div class="painPoint">PAIN POINT</div>
+                        </div>
+                    </section>
+                </div>
+                <div class="jm_container">
+                    <ul>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>3년의 백수 생활. 할 수 있는<br>것들은 다 해본 지 오래다.<br>새로운 것을 찾고 싶어!</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>재미를 찾던 중, 커뮤니티에서<br>성인 ADHD에 대한 내용을<br>발견했다. 혹시 나도..?</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>테스트 결과, 성인 ADHD 약간<br>의심 판정을 받았다. 테스트는<br>재밌었지만 불안해.</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>커뮤니티를 보니 다른 사람들도<br>흔히 겪을 수 있는 일이었네!<br>너무 불안해하지 말아야겠다.</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>사람들이 자신의 결과 리포트를<br>보여주며 케어 서비스 이용을<br>추천하네? 나도 해 봐야지!</div>
+                        </li>
+                        <div class="rightArrow"> </div>
+                        <li class="journeyMap_text">
+                            <div class=jm_text>재밌고 유익한 서비스였어.<br>나도 사람들에게 알려야겠다.</div>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                    <section class="jm_box">
+                        <img src="./img/journeyMap_img3.png">
+                        <div class="painPoint_box">
+                            <div class="sayBox"><div>내가 정말 괜찮은 걸까<br>불안하고 걱정돼</div></div>
+                            <div class="painPoint">PAIN POINT</div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </section>
+        <section id="main8">
+            <section id="service">
+                <h2>SERVICE</h2>
+                <p>어금니는 TEST를 중심으로 가볍게 접할 수 있는 CARE 서비스와 심화적인 내용을 가진 
+                    CURE 서비스를 나누어 제공합니다. 이러한 분리를 통해 심화 정도가 낮은 사용자는 
+                    부담스럽지 않게, 심화 정도가 높은 사용자는 진지하고 전문성 있는 자료를 통해 자신이 
+                    원하는 서비스를 이용하여 높은 만족도를 유지할 수 있도록 합니다.</p>
+                <ul>
+                    <li>CARE</li>
+                    <li>TEST</li>
+                    <li>CURE</li>
+                </ul>
+                <div> </div>
+            </section>
+        </section>
+        <section id="main9">
+            <h2>DESIGN CONCEPT</h2>
+            <p>서비스와 관련된 키워드를 선정 후 콘셉트와 디자인 전략을 수립했습니다.<br>
+                사용자들이 서비스에 쉽게 접근할 수 있도록 밝고 부드러운 이미지를 제공합니다.
+            </p>
+            <section id="designKeyword_box">
+                <div class="kwBox">
+                <ul class="kwLine">
+                    <li class="kwBlue"># 신뢰성 있는</li>
+                    <li class="kwPink"># 부드러운</li>
+                    <li class="kwBlue"># 체계적인</li>
+                    <li class="kwPink"># 활기찬</li>
+                    <li class="kwPink"># 유연한</li>
+                    <li class="kwBlue"># 신뢰성 있는</li>
+                    <li class="kwPink"># 부드러운</li>
+                    <li class="kwBlue"># 체계적인</li>
+                    <li class="kwPink"># 활기찬</li>
+                    <li class="kwPink"># 유연한</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="kwBox">
+                    <ul class="kwLine spped2">
+                        <li class="kwPink"># 밝은</li>
+                        <li class="kwBlue"># 편리한</li>
+                        <li class="kwPink"># 사용자 중심</li>
+                        <li class="kwPink"># 흥미로운</li>
+                        <li class="kwBlue"># 전문적인</li>
+                        <li class="kwPink"># 밝은</li>
+                        <li class="kwBlue"># 편리한</li>
+                        <li class="kwPink"># 사용자 중심</li>
+                        <li class="kwPink"># 흥미로운</li>
+                        <li class="kwBlue"># 전문적인</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="kwBox">
+                    <ul class="kwLine">
+                        <li class="kwBlue"># 직관적인</li>
+                        <li class="kwPink"># 소통하는</li>
+                        <li class="kwBlue"># 신뢰성 있는</li>
+                        <li class="kwPink"># 부드러운</li>
+                        <li class="kwBlue"># 체계적인</li>
+                        <li class="kwBlue"># 직관적인</li>
+                        <li class="kwPink"># 소통하는</li>
+                        <li class="kwBlue"># 신뢰성 있는</li>
+                        <li class="kwPink"># 부드러운</li>
+                        <li class="kwBlue"># 체계적인</li>
+                    </ul>
+                </div>
+                <div id="fade_L"> </div>
+                <div id="fade_R"> </div>
+                <div class="clear"></div>
+            </section>
+        </section>
+        <section id="main10">
+            <section id="design_main">
+                <h2 class="pinkIndex">MAIN</h2>
+                <h3 class="designB"><strong>나도 혹시 성인 ADHD?</strong>제대로 알고 극복해요!</h3>
+                <div id="widgets">
+                    <div id="app1"><img src="./img/app1.png"></div>
+                    <div id="widget_text1">
+                        <div id="desc_line1"></div>
+                        <div id="wg_text1Box">
+                            <h4 class="designH">언제나 빠르게 테스트할 수 있도록</h4>
+                            <p class="designP">사용자들이 자신의 상황을 쉽고 빠르게 인지할 수 있게 
+                                첫 진입 화면인 메인 화면 상단에 테스트를 배치하였습니다.</p>
+                        </div>
+                    </div>
+                    <ul id="widgetBox">
+                        <li id="widget1"></li>
+                        <li id="widget2"></li>
+                        <li id="widget3"></li>
+                        <li id="widget4"></li>
+                    </ul>
+                    <div id="widget_text2">
+                        <div id="desc_line2"></div>
+                        <div id="wg_text2Box">
+                            <h4 class="designH">간결한 구성으로 편하게 정보를 습득할 수 있도록</h4>
+                            <p class="designP">위젯을 통해 메인 화면을 원하는 정보로 맞춤<br>구성할 수 있어 일정, 
+                                결과리포트 등 다양한 정보를 메인 화면에서 간단하게 확인할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="design_simpleTest">
+                <section id="design_simpleT1">
+                    <div id="app2"><img src="./img/app2.png"></div>
+                    <div id="simpleT1_Box">
+                        <h2 class="pinkIndex">SIMPLE TEST</h2>
+                        <h3 class="designB">간편하게 테스트 해보고<strong>나에 대해 알아가세요!</strong></h3>
+                        <p class="designP">가볍게 할 수 있는 간단 테스트부터 심각도, ADHD 유형 등을 파악할 수 있는
+                            심화 테스트까지, 각각의 사용자의 상황에 맞춤 서비스를 제공합니다.</p>
+                    </div>
+                    <div class="clear"></div>
+                </section>
+                <section id="design_simpleT2">
+                    <div id="simpleT2_Box">
+                        <h3 class="designB">부담스럽지 않게<strong>간단 테스트</strong></h3>
+                        <p class="designP">간단 테스트를 A와 B로 구분하여 사용자 각각의<br>심각도와 성향을 
+                            파악합니다. 결과의 심각도와 성향을 캐릭터와 설명을 통해 재밌게 제공합니다.</p>
+                    </div>
+                    <div id="simpleT2_app">
+                        <div id="app3"><img src="./img/app3.png"></div>
+                        <div id="app4"><img src="./img/app4.png"></div>
+                    </div>
+                    <div class="clear"></div>
+                </section>
+            </section>
+            <section id="design_deepTest">
+                <div id="app5"><img src="./img/app5.png"></div>
+                <div id="deepT_Box">
+                    <h2 class="pinkIndex">DEEP TEST</h2>
+                    <h3 class="designB">심화된 테스트로<br><strong>나에 대해 알아가세요!</strong></h3>
+                    <p class="designP">질문에 대한 답변을 성년기와 아동기를 나누어 사용자의 경험을 
+                    조사하여 자세한 진단 결과를 결과 리포트로 제공합니다.</p>
+                </div>
+                <div id="deep_text">
+                    <div id="desc_line3"></div>
+                    <div id="resultReport"> </div>
+                </div>
+            </section>
+            <div id="parallax"></div>
+            <section id="design_cure">
+                <section id="design_cure1">
+                    <div id="deepT_Box">
+                        <h2 class="blueIndex">CURE</h2>
+                        <h3 class="designB">언제 어디서든<br><strong>간편한 진료 서비스</strong></h3>
+                        <div id="app6"><img src="./img/app6.png"></div>
+                        <p class="designP">질문에 대한 답변을 성년기와 아동기를 나누어 사용자의 경험을 
+                        조사하여 자세한 진단 결과를 결과 리포트로 제공합니다.</p>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <section id="imgAll"> </section>
+    </main>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
